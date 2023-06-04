@@ -5,7 +5,6 @@ function func() {
   var teacher = "Pulkit";
   var subject = "js";
   teachingAssi = "vaibhav";
-
   console.log(teacher); // Pulkit both memory and data is assign
   console.log(teachingAssi); // Vaibhav both memory and data is assign
 }
