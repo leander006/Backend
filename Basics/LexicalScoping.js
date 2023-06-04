@@ -12,3 +12,12 @@ function func() {
 func();
 console.log(teacher); // sanket both memory and data is assign
 console.log(teachingAssi); // Vaibhav both memory and data is assign
+
+// Hoisting is direct result of lexical scoping
+
+gun();
+
+function gun() {
+  console.log("Hoisting");
+}
+// Does not work in block scope

@@ -26,13 +26,19 @@ console.log("x ", x); // error because it got functional scope
 
 // Let
 
-console.log(x); // Errro no global scope
+// console.log(x); // Errro no global scope
 {
   let y = 10;
   console.log(y);
 }
 
-// console.log(y); // Error
+function fun() {
+  console.log("Let in functions ", x);
+  let x = 10;
+  console.log("x");
+}
+fun();
+console.log(y); // Error
 
 let x = 10;
 console.log(x); // 10
@@ -44,4 +50,3 @@ const z = 20;
 z = 20;
 
 console.log("z ", z);
-
