@@ -1,14 +1,19 @@
 const mongoose = require("mongoose");
 
-const tweetScheme = new mongoose.Schema({
-  content: {
-    type: String,
-    require: true,
+const tweetScheme = new mongoose.Schema(
+  {
+    content: {
+      type: String,
+      required: true,
+    },
+    userEmail: {
+      type: String,
+    },
   },
-  userEmail: {
-    type: String,
-  },
-});
+  {
+    timestamps: true,
+  }
+);
 
 const Tweet = mongoose.model("Tweet", tweetScheme);
 
