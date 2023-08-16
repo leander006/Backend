@@ -13,7 +13,7 @@ app.listen(3000, async (req, res) => {
 
   const TweetRepo = new TweetRepository();
 
-  const tweet = await TweetRepo.getByComments("64dc87780b55555509f22480");
+  const tweet = await TweetRepo.getAll(3, 4);
 
   //   const comment = await Comment.create({
   //     content: "This is comment1",
@@ -26,7 +26,7 @@ app.listen(3000, async (req, res) => {
   //   tweet.comments.push(comment);
 
   //   await tweet.save();
-  console.log(tweet);
+  console.log(tweet[1].contentWithEmail);
 
   //   console.log(tweet);
 

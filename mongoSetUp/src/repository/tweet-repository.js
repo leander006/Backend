@@ -18,9 +18,9 @@ class TweetReposirtory {
     }
   }
 
-  async get() {
+  async getAll(offset, limit) {
     try {
-      const res = await Tweet.find();
+      const res = await Tweet.find().skip(offset).limit(limit);
       return res;
     } catch (error) {
       throw error;
@@ -44,6 +44,7 @@ class TweetReposirtory {
       throw error;
     }
   }
+
   async delete(id) {
     try {
       await Tweet.findByIdAndDelete(id);
