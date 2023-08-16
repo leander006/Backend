@@ -9,12 +9,18 @@ const tweetScheme = new mongoose.Schema(
     userEmail: {
       type: String,
     },
+    comments: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Comment",
+      },
+    ],
   },
   {
     timestamps: true,
   }
 );
 
-const Tweet = mongoose.model("Tweet", tweetScheme);
+const Tweet = mongoose.models.Tweet || mongoose.model("Tweet", tweetScheme);
 
 module.exports = Tweet;

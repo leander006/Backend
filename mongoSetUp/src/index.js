@@ -2,7 +2,7 @@ const express = require("express");
 
 const app = express();
 
-const Tweet = require("./model/tweet");
+const Comment = require("./model/comment");
 
 const TweetRepository = require("./repository/tweet-repository");
 
@@ -12,9 +12,21 @@ app.listen(3000, async (req, res) => {
   await connect();
 
   const TweetRepo = new TweetRepository();
-  //   const tweet = await TweetRepo.upadte("64dc79020fc0a89d3d3dc2e6", {
-  //     userEmail: "@gmail.com",
+
+  const tweet = await TweetRepo.getByComments("64dc87780b55555509f22480");
+
+  //   const comment = await Comment.create({
+  //     content: "This is comment1",
   //   });
+
+  //   console.log(tweet);
+  //   tweet.comments.push(comment);
+  //   tweet.comments.push(comment);
+  //   tweet.comments.push(comment);
+  //   tweet.comments.push(comment);
+
+  //   await tweet.save();
+  console.log(tweet);
 
   //   console.log(tweet);
 

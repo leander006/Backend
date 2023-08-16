@@ -36,6 +36,14 @@ class TweetReposirtory {
     }
   }
 
+  async getByComments(id) {
+    try {
+      const res = await Tweet.findById(id).populate("comments");
+      return res;
+    } catch (error) {
+      throw error;
+    }
+  }
   async delete(id) {
     try {
       await Tweet.findByIdAndDelete(id);
