@@ -9,7 +9,7 @@ const packageDefinition = protoLoader.loadSync("./todo.proto", {
 });
 
 const todoProto = grpc.loadPackageDefinition(packageDefinition);
-// const todoProto = grpc.load("todo.proto");
+
 const todoService = todoProto.TodoService;
 const server = new grpc.Server();
 
@@ -32,8 +32,10 @@ const todos = [
 ];
 
 server.addService(todoService.service, {
-  ListTodo: (call, callback) => {
-    callback(null, { todos: todos });
+  listTodo: (call, callback) => {
+    callback(null, {
+      todos: todos,
+    });
   },
   createTodo: (call, callback) => {
     let incomingNewTodo = call.request;
@@ -57,7 +59,7 @@ server.addService(todoService.service, {
 });
 
 server.bindAsync(
-  "127.0.0.1:5001",
+  "0.0.0.0:50051",
   grpc.ServerCredentials.createInsecure(),
   () => {
     console.log("Server started");
